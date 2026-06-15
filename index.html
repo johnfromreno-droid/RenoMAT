@@ -18,383 +18,228 @@
     --muted: #5a6a7e;
     --border: #d0dff0;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text);
-    background: var(--white);
-    line-height: 1.6;
-  }
-
-  /* ── HERO ── */
-  .hero {
+  /* ── LANG TOGGLE BAR ── */
+  .lang-bar {
     background: var(--navy);
-    padding: 48px 24px 40px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
   }
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 70% 50%, rgba(59,143,212,0.18) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-tag {
-    display: inline-block;
-    background: var(--accent);
+  .lang-bar span { color: rgba(255,255,255,0.5); font-size: 12px; }
+  .lang-btn {
+    background: none;
+    border: 1.5px solid rgba(255,255,255,0.3);
     color: white;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
     padding: 4px 12px;
     border-radius: 20px;
-    margin-bottom: 16px;
-  }
-  .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(28px, 6vw, 48px);
-    color: var(--white);
-    line-height: 1.2;
-    margin-bottom: 12px;
-  }
-  .hero h1 span { color: #7ec8f0; }
-  .hero p {
-    font-size: clamp(15px, 2.5vw, 18px);
-    color: rgba(255,255,255,0.78);
-    max-width: 560px;
-    margin: 0 auto 28px;
-  }
-  .hero-actions {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 13px 24px;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
     cursor: pointer;
-    border: none;
-    transition: all 0.18s ease;
+    transition: all 0.15s;
+    font-family: 'DM Sans', sans-serif;
   }
-  .btn-primary {
-    background: var(--accent);
-    color: white;
-  }
+  .lang-btn.active { background: var(--accent); border-color: var(--accent); }
+  .lang-btn:hover:not(.active) { background: rgba(255,255,255,0.1); }
+
+  /* ── HERO ── */
+  .hero { background: var(--navy); padding: 40px 24px 36px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(59,143,212,0.18) 0%, transparent 70%); pointer-events: none; }
+  .hero-tag { display: inline-block; background: var(--accent); color: white; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 6vw, 46px); color: var(--white); line-height: 1.2; margin-bottom: 12px; }
+  .hero h1 span { color: #7ec8f0; }
+  .hero p { font-size: clamp(14px, 2.5vw, 17px); color: rgba(255,255,255,0.78); max-width: 560px; margin: 0 auto 28px; }
+  .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 7px; padding: 13px 24px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: all 0.18s ease; font-family: 'DM Sans', sans-serif; }
+  .btn-primary { background: var(--accent); color: white; }
   .btn-primary:hover { background: #c96d18; transform: translateY(-1px); }
-  .btn-outline {
-    background: rgba(255,255,255,0.1);
-    color: white;
-    border: 1.5px solid rgba(255,255,255,0.3);
-  }
+  .btn-outline { background: rgba(255,255,255,0.1); color: white; border: 1.5px solid rgba(255,255,255,0.3); }
   .btn-outline:hover { background: rgba(255,255,255,0.18); }
-  .btn-print {
-    background: var(--light);
-    color: var(--navy);
-    border: 1.5px solid var(--border);
-  }
+  .btn-print { background: var(--light); color: var(--navy); border: 1.5px solid var(--border); }
   .btn-print:hover { background: var(--border); }
 
+  /* ── SPANISH BANNER ── */
+  .spanish-banner { background: #1a6e3a; padding: 10px 24px; text-align: center; }
+  .spanish-banner p { color: white; font-size: clamp(13px, 2vw, 14px); font-weight: 600; }
+
   /* ── WHAT IS MAT ── */
-  .what-banner {
-    background: var(--sky);
-    padding: 18px 24px;
-    text-align: center;
-  }
-  .what-banner p {
-    color: white;
-    font-size: clamp(13px, 2vw, 15px);
-    max-width: 780px;
-    margin: 0 auto;
-  }
+  .what-banner { background: var(--sky); padding: 18px 24px; text-align: center; }
+  .what-banner p { color: white; font-size: clamp(13px, 2vw, 15px); max-width: 780px; margin: 0 auto; }
   .what-banner strong { font-weight: 700; }
 
   /* ── SECTION ── */
   section { padding: 40px 20px; }
   .container { max-width: 880px; margin: 0 auto; }
-  .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(22px, 4vw, 30px);
-    color: var(--navy);
-    margin-bottom: 6px;
-  }
-  .section-sub {
-    color: var(--muted);
-    font-size: 15px;
-    margin-bottom: 28px;
-  }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(22px, 4vw, 30px); color: var(--navy); margin-bottom: 6px; }
+  .section-sub { color: var(--muted); font-size: 15px; margin-bottom: 28px; }
 
   /* ── CLINICS ── */
-  .clinics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-  }
-  .clinic-card {
-    background: var(--white);
-    border: 1.5px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: box-shadow 0.2s, transform 0.2s;
-  }
-  .clinic-card:hover {
-    box-shadow: 0 8px 28px rgba(15,42,74,0.12);
-    transform: translateY(-2px);
-  }
-  .clinic-header {
-    background: var(--navy);
-    padding: 14px 18px;
-  }
-  .clinic-header h3 {
-    color: white;
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 1.3;
-  }
+  .clinics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .clinic-card { background: var(--white); border: 1.5px solid var(--border); border-radius: 12px; overflow: hidden; transition: box-shadow 0.2s, transform 0.2s; }
+  .clinic-card:hover { box-shadow: 0 8px 28px rgba(15,42,74,0.12); transform: translateY(-2px); }
+  .clinic-header { background: var(--navy); padding: 14px 18px; }
+  .clinic-header h3 { color: white; font-size: 16px; font-weight: 700; line-height: 1.3; }
   .clinic-body { padding: 16px 18px; }
-  .clinic-address {
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 10px;
-    display: flex;
-    gap: 6px;
-  }
+  .clinic-address { font-size: 13px; color: var(--muted); margin-bottom: 10px; display: flex; gap: 6px; }
   .clinic-address svg { flex-shrink: 0; margin-top: 2px; }
-  .clinic-phone {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-  }
-  .clinic-phone a {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--blue);
-    text-decoration: none;
-    letter-spacing: -0.3px;
-  }
+  .clinic-phone { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .clinic-phone a { font-size: 20px; font-weight: 700; color: var(--blue); text-decoration: none; letter-spacing: -0.3px; }
   .clinic-phone a:hover { color: var(--sky); }
-  .call-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    background: var(--accent);
-    color: white;
-    font-size: 13px;
-    font-weight: 600;
-    padding: 6px 13px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.15s;
-  }
+  .call-btn { display: inline-flex; align-items: center; gap: 5px; background: var(--accent); color: white; font-size: 13px; font-weight: 600; padding: 6px 13px; border-radius: 6px; text-decoration: none; transition: background 0.15s; }
   .call-btn:hover { background: #c96d18; }
-  .clinic-hours {
-    font-size: 13px;
-    color: var(--muted);
-    font-style: italic;
-    margin-bottom: 10px;
-    display: flex;
-    gap: 6px;
-    align-items: flex-start;
-  }
+  .clinic-hours { font-size: 13px; color: var(--muted); font-style: italic; margin-bottom: 10px; display: flex; gap: 6px; align-items: flex-start; }
   .clinic-notes { list-style: none; padding: 0; }
-  .clinic-notes li {
-    font-size: 13px;
-    color: var(--text);
-    padding: 3px 0 3px 14px;
-    position: relative;
-    line-height: 1.45;
-  }
-  .clinic-notes li::before {
-    content: '·';
-    position: absolute;
-    left: 4px;
-    color: var(--sky);
-    font-weight: 700;
-  }
-  .tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 20px;
-    margin-top: 8px;
-    margin-right: 4px;
-  }
-  .tag-spanish { background: #e8f4e8; color: #2a7a2a; }
+  .clinic-notes li { font-size: 13px; color: var(--text); padding: 3px 0 3px 14px; position: relative; line-height: 1.45; }
+  .clinic-notes li::before { content: '·'; position: absolute; left: 4px; color: var(--sky); font-weight: 700; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 20px; margin-top: 8px; margin-right: 4px; }
   .tag-walkin { background: #fff3e0; color: #b85c00; }
   .tag-72hr { background: #e8f2fb; color: #1a5c9e; }
-
-  /* ── OPEN NOW BADGE ── */
-  .open-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 3px 9px;
-    border-radius: 20px;
-    margin-bottom: 8px;
-  }
+  .open-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 3px 9px; border-radius: 20px; margin-bottom: 8px; }
   .open-badge.open { background: #e6f9ee; color: #1a7a3a; }
   .open-badge.closed { background: #fef0f0; color: #c0392b; }
-  .open-badge .dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-  }
+  .open-badge .dot { width: 7px; height: 7px; border-radius: 50%; }
   .open-badge.open .dot { background: #1a7a3a; }
   .open-badge.closed .dot { background: #c0392b; }
 
   /* ── FAQ ── */
   .faq-section { background: var(--gray); }
-  .faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 14px;
-  }
-  .faq-item {
-    background: white;
-    border-radius: 10px;
-    padding: 16px 18px;
-    border-left: 4px solid var(--sky);
-  }
-  .faq-item h4 {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 5px;
-  }
-  .faq-item p {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.55;
-  }
+  .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .faq-item { background: white; border-radius: 10px; padding: 16px 18px; border-left: 4px solid var(--sky); }
+  .faq-item h4 { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
+  .faq-item p { font-size: 13px; color: var(--muted); line-height: 1.55; }
 
   /* ── CTA ── */
-  .cta-section {
-    background: var(--navy);
-    text-align: center;
-    padding: 44px 24px;
-  }
-  .cta-section h2 {
-    font-family: 'DM Serif Display', serif;
-    color: white;
-    font-size: clamp(22px, 4vw, 32px);
-    margin-bottom: 10px;
-  }
-  .cta-section p {
-    color: rgba(255,255,255,0.72);
-    font-size: 16px;
-    margin-bottom: 24px;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .cta-highlights {
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    flex-wrap: wrap;
-    margin-bottom: 28px;
-  }
-  .cta-highlight {
-    color: white;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
+  .cta-section { background: var(--navy); text-align: center; padding: 44px 24px; }
+  .cta-section h2 { font-family: 'DM Serif Display', serif; color: white; font-size: clamp(22px, 4vw, 32px); margin-bottom: 10px; }
+  .cta-section p { color: rgba(255,255,255,0.72); font-size: 16px; margin-bottom: 24px; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .cta-highlights { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin-bottom: 28px; }
+  .cta-highlight { color: white; font-size: 14px; display: flex; align-items: center; gap: 7px; }
   .cta-highlight svg { color: var(--accent); }
 
   /* ── PRINT STRIP ── */
-  .print-strip {
-    background: var(--light);
-    border-top: 2px solid var(--border);
-    padding: 20px 24px;
-    text-align: center;
-  }
-  .print-strip p {
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 12px;
-  }
+  .print-strip { background: var(--light); border-top: 2px solid var(--border); padding: 20px 24px; text-align: center; }
+  .print-strip p { font-size: 14px; color: var(--muted); margin-bottom: 12px; }
+  .print-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
   /* ── FOOTER ── */
-  footer {
-    background: #08192f;
-    padding: 20px 24px;
-    text-align: center;
-  }
-  footer p {
-    color: rgba(255,255,255,0.4);
-    font-size: 12px;
-  }
+  footer { background: #08192f; padding: 20px 24px; text-align: center; }
+  footer p { color: rgba(255,255,255,0.4); font-size: 12px; }
 
   /* ── MOBILE ── */
   @media (max-width: 500px) {
-    .hero { padding: 36px 16px 32px; }
+    .hero { padding: 32px 16px 28px; }
     .btn { padding: 12px 18px; font-size: 14px; }
     .clinics-grid { grid-template-columns: 1fr; }
     .faq-grid { grid-template-columns: 1fr; }
     .cta-highlights { gap: 16px; flex-direction: column; align-items: center; }
   }
-
-  /* ── PRINT STYLES ── */
   @media print {
-    .hero-actions, .call-btn, .print-strip, footer, .btn-print { display: none !important; }
-    .hero { padding: 20px; }
+    .hero-actions, .call-btn, .print-strip, footer, .lang-bar { display: none !important; }
     .clinic-card { break-inside: avoid; border: 1px solid #ccc; }
-    body { font-size: 12px; }
   }
+
+  /* ── TRANSLATION NOTE ── */
+  .translation-note { background: #fff8e1; border: 1.5px solid #f0c040; padding: 10px 18px; text-align: center; font-size: 12px; color: #7a5800; }
 </style>
 </head>
 <body>
 
+<!-- LANG TOGGLE -->
+<div class="lang-bar">
+  <span>Language / Idioma:</span>
+  <button class="lang-btn active" id="btn-en" onclick="setLang('en')">English</button>
+  <button class="lang-btn" id="btn-es" onclick="setLang('es')">Español</button>
+</div>
+
+<!-- TRANSLATION NOTE (Spanish only) -->
+<div class="translation-note" id="translation-note" style="display:none;">
+  ⚠️ <strong>Nota:</strong> Esta traducción está pendiente de revisión médica profesional. / <em>This translation is pending professional medical review.</em>
+</div>
+
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-tag">Reno, NV · Help Is Available</div>
-  <h1>Medication for<br><span>Addiction Treatment</span></h1>
-  <p>Safe, proven care that reduces cravings and supports your recovery. You do not need a referral to get started.</p>
+  <div class="hero-tag" id="hero-tag">Reno, NV · Help Is Available</div>
+  <h1 id="hero-h1">Medication for<br><span id="hero-span">Addiction Treatment</span></h1>
+  <p id="hero-p">Safe, proven care that reduces cravings and supports your recovery. You do not need a referral to get started.</p>
   <div class="hero-actions">
     <a href="#clinics" class="btn btn-primary">
       <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-      Find a Clinic
+      <span id="btn-clinics">Find a Clinic</span>
     </a>
     <a href="#faq" class="btn btn-outline">
       <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path stroke-linecap="round" stroke-linejoin="round" d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-linecap="round" stroke-width="3"/></svg>
-      What is MAT?
+      <span id="btn-faq">What is MAT?</span>
     </a>
     <a href="MAT_Reno_Handout.pdf" target="_blank" class="btn btn-outline" id="printBtn">
       <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-      Print Pamphlet
+      <span id="btn-print-hero">Print Pamphlet</span>
     </a>
   </div>
 </div>
 
+<!-- SPANISH AVAILABILITY BANNER -->
+<div class="spanish-banner">
+  <p id="spanish-banner-text">🌐 Se habla español en todas las clínicas &nbsp;·&nbsp; Spanish-speaking services available at all clinics</p>
+</div>
+
 <!-- WHAT IS MAT -->
 <div class="what-banner">
-  <p><strong>What is MAT?</strong> MAT uses FDA-approved medicine to reduce cravings and ease withdrawal. Combined with counseling, it helps you manage addiction and build a healthier life. <strong>It works. Recovery is possible.</strong></p>
+  <p id="what-text"><strong>What is MAT?</strong> MAT uses FDA-approved medicine to reduce cravings and ease withdrawal. Combined with counseling, it helps you manage addiction and build a healthier life. <strong>It works. Recovery is possible.</strong></p>
 </div>
 
 <!-- CLINICS -->
 <section id="clinics">
   <div class="container">
-    <h2 class="section-title">Clinics in Reno</h2>
-    <p class="section-sub">All clinics offer Spanish-speaking services. Call during business hours or walk in where noted.</p>
+    <h2 class="section-title" id="clinics-title">Clinics in Reno</h2>
+    <p class="section-sub" id="clinics-sub">Call during business hours or walk in where noted.</p>
     <div class="clinics-grid">
+
+      <!-- CHA -->
+      <div class="clinic-card">
+        <div class="clinic-header"><h3>Community Health Alliance</h3></div>
+        <div class="clinic-body">
+          <div id="badge-cha" class="open-badge closed"><span class="dot"></span><span class="label">Checking hours...</span></div>
+          <div class="clinic-address">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span class="addr-cha">6 locations across Reno/Sparks</span>
+          </div>
+          <div class="clinic-phone"><a href="tel:7753363768">(775) 336-3768</a></div>
+          <a href="tel:7753363768" class="call-btn"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><span class="call-now">Call Now</span></a>
+          <div class="clinic-hours"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="hours-cha">Mon–Fri 8am – 4:30pm</span></div>
+          <ul class="clinic-notes">
+            <li class="cha-n1">Appointments available within 72 hours</li>
+            <li class="cha-n2">Buprenorphine (Suboxone), naltrexone (Vivitrol)</li>
+            <li class="cha-n3">Most insurances accepted · sliding fee scale</li>
+          </ul>
+          <div><span class="tag tag-72hr" id="tag-72hr">⚡ 72hr appt</span></div>
+        </div>
+      </div>
+
+      <!-- HOPES -->
+      <div class="clinic-card">
+        <div class="clinic-header"><h3>Northern Nevada HOPES</h3></div>
+        <div class="clinic-body">
+          <div id="badge-hopes" class="open-badge closed"><span class="dot"></span><span class="label">Checking hours...</span></div>
+          <div class="clinic-address">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            580 W 5th St &amp; 1905 E 4th St, Reno
+          </div>
+          <div class="clinic-phone"><a href="tel:7752360003">(775) 236-0003</a></div>
+          <a href="tel:7752360003" class="call-btn"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><span class="call-now">Call Now</span></a>
+          <div class="clinic-hours"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="hours-hopes">Walk-in M–F · Orientation: Thu 12–1pm (5th St) &amp; Tue 4–5pm (4th St)</span></div>
+          <ul class="clinic-notes">
+            <li class="hopes-n1">Buprenorphine (Suboxone, Sublocade, Brixadi), naltrexone (Vivitrol) — no methadone</li>
+            <li class="hopes-n2">Dedicated perinatal team for pregnant women with SUD</li>
+            <li class="hopes-n3">Most insurances accepted · sliding fee scale</li>
+          </ul>
+          <div><span class="tag tag-walkin" id="tag-walkin">🚶 Walk-in M–F</span></div>
+        </div>
+      </div>
 
       <!-- UNR -->
       <div class="clinic-card">
@@ -405,20 +250,13 @@
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             745 W Moana Ln, Reno, NV 89509
           </div>
-          <div class="clinic-phone">
-            <a href="tel:7759821000">(775) 982-1000</a>
-          </div>
-          <a href="tel:7759821000" class="call-btn">
-            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            Call Now
-          </a>
-          <div class="clinic-hours">
-            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Mon–Fri 8am – 5pm · Call on Mondays to schedule MAT
-          </div>
+          <div class="clinic-phone"><a href="tel:7759821000">(775) 982-1000</a></div>
+          <a href="tel:7759821000" class="call-btn"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><span class="call-now">Call Now</span></a>
+          <div class="clinic-hours"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="hours-unr">Mon–Fri 8am – 5pm · Call on Mondays to schedule MAT</span></div>
           <ul class="clinic-notes">
-            <li>Ask for UNR Family Medicine, then ask for scheduling for the MAT clinic</li>
-            <li>Providers: use Epic Messenger or Voalte</li>
+            <li class="unr-n1">Buprenorphine (Suboxone), naltrexone (Vivitrol)</li>
+            <li class="unr-n2">Ask for UNR Family Medicine, then ask for scheduling for the MAT clinic</li>
+            <li class="unr-n3">Providers: use Epic Messenger or Voalte</li>
           </ul>
         </div>
       </div>
@@ -432,86 +270,14 @@
             <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             85 Kirman Ave, Suite 100, Reno, NV 89502
           </div>
-          <div class="clinic-phone">
-            <a href="tel:7759825419">(775) 982-5419</a>
-          </div>
-          <a href="tel:7759825419" class="call-btn">
-            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            Call Now
-          </a>
-          <div class="clinic-hours">
-            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Tue & Thu 8am – 4:30pm
-          </div>
+          <div class="clinic-phone"><a href="tel:7759825419">(775) 982-5419</a></div>
+          <a href="tel:7759825419" class="call-btn"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg><span class="call-now">Call Now</span></a>
+          <div class="clinic-hours"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="hours-renown">Tue &amp; Thu 8am – 4:30pm</span></div>
           <ul class="clinic-notes">
-            <li>Dr. Bret Bellard</li>
-            <li>Buprenorphine treatment &amp; supportive therapies</li>
-            <li>Personalized, evidence-based care</li>
+            <li class="renown-n1">Dr. Bret Bellard</li>
+            <li class="renown-n2">Buprenorphine (Suboxone), naltrexone (Vivitrol)</li>
+            <li class="renown-n3">Personalized, evidence-based care</li>
           </ul>
-        </div>
-      </div>
-
-      <!-- CHA -->
-      <div class="clinic-card">
-        <div class="clinic-header"><h3>Community Health Alliance</h3></div>
-        <div class="clinic-body">
-          <div id="badge-cha" class="open-badge closed"><span class="dot"></span><span class="label">Checking hours...</span></div>
-          <div class="clinic-address">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            6 locations across Reno/Sparks
-          </div>
-          <div class="clinic-phone">
-            <a href="tel:7753363768">(775) 336-3768</a>
-          </div>
-          <a href="tel:7753363768" class="call-btn">
-            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            Call Now
-          </a>
-          <div class="clinic-hours">
-            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Mon–Fri 8am – 4:30pm
-          </div>
-          <ul class="clinic-notes">
-            <li>Appointments available within 72 hours</li>
-            <li>Buprenorphine, Suboxone, Naltrexone</li>
-            <li>All insurance accepted · sliding fee scale</li>
-          </ul>
-          <div>
-            <span class="tag tag-spanish">🌐 Spanish</span>
-            <span class="tag tag-72hr">⚡ 72hr appt</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- HOPES -->
-      <div class="clinic-card">
-        <div class="clinic-header"><h3>Northern Nevada HOPES</h3></div>
-        <div class="clinic-body">
-          <div id="badge-hopes" class="open-badge closed"><span class="dot"></span><span class="label">Checking hours...</span></div>
-          <div class="clinic-address">
-            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            580 W 5th St &amp; 1905 E 4th St, Reno
-          </div>
-          <div class="clinic-phone">
-            <a href="tel:7757371326">(775) 737-1326</a>
-          </div>
-          <a href="tel:7757371326" class="call-btn">
-            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-            Call Now
-          </a>
-          <div class="clinic-hours">
-            <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Walk-in orientation: Thursdays @ 12pm (3rd floor, 5th St clinic)
-          </div>
-          <ul class="clinic-notes">
-            <li>Suboxone &amp; Naltrexone offered (no methadone)</li>
-            <li>All insurance accepted · sliding fee scale</li>
-            <li>New patients welcome — no referral needed</li>
-          </ul>
-          <div>
-            <span class="tag tag-spanish">🌐 Spanish</span>
-            <span class="tag tag-walkin">🚶 Walk-in Thu</span>
-          </div>
         </div>
       </div>
 
@@ -522,123 +288,228 @@
 <!-- FAQ -->
 <section id="faq" class="faq-section">
   <div class="container">
-    <h2 class="section-title">Common Questions</h2>
-    <p class="section-sub">Simple answers about how MAT works.</p>
+    <h2 class="section-title" id="faq-title">Common Questions</h2>
+    <p class="section-sub" id="faq-sub">Simple answers about how MAT works.</p>
     <div class="faq-grid">
-      <div class="faq-item">
-        <h4>Will MAT make me feel high?</h4>
-        <p>No. MAT medicines help you feel stable and in control — not high.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Is MAT safe?</h4>
-        <p>Yes. MAT medicines are FDA-approved and proven to work for opioid addiction.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Do I need therapy too?</h4>
-        <p>Yes. Counseling helps you understand addiction and build skills for lasting recovery.</p>
-      </div>
-      <div class="faq-item">
-        <h4>How long will I need MAT?</h4>
-        <p>It depends on you. Treatment length varies and your care team will guide you every step.</p>
-      </div>
-      <div class="faq-item">
-        <h4>What does it cost?</h4>
-        <p>Most clinics accept all insurance. Sliding fee scales are available if you are uninsured.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Do I need a referral?</h4>
-        <p>No. You can call any clinic directly. Anyone can help you — a nurse, social worker, or you yourself.</p>
-      </div>
+      <div class="faq-item"><h4 id="fq1">Will MAT make me feel high?</h4><p id="fa1">No. MAT medicines help you feel stable and in control — not high.</p></div>
+      <div class="faq-item"><h4 id="fq2">Is MAT safe?</h4><p id="fa2">Yes. MAT medicines are FDA-approved and proven to work for opioid addiction.</p></div>
+      <div class="faq-item"><h4 id="fq3">Do I need therapy too?</h4><p id="fa3">Therapy is recommended but not required. Many clinics offer peer support, group therapy, individual therapy, and intensive outpatient programs. Talk to your care team about what works best for you.</p></div>
+      <div class="faq-item"><h4 id="fq4">How long will I need MAT?</h4><p id="fa4">It depends on you. Treatment length varies and your care team will guide you every step.</p></div>
+      <div class="faq-item"><h4 id="fq5">What does it cost?</h4><p id="fa5">Most clinics accept most insurances. Sliding fee scales are available if you are uninsured.</p></div>
+      <div class="faq-item"><h4 id="fq6">Do I need a referral?</h4><p id="fa6">No. Anyone can contact a clinic directly — patients, family members, nurses, doctors, social workers, or shelter staff. No referral is required at any clinic.</p></div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <div class="cta-section">
-  <h2>Ready to take the first step?</h2>
-  <p>Call any clinic above. You do not need a referral. Help is available right now.</p>
+  <h2 id="cta-h2">Ready to take the first step?</h2>
+  <p id="cta-p">Call any clinic above. You do not need a referral. Help is available right now.</p>
   <div class="cta-highlights">
-    <div class="cta-highlight">
-      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-      No referral needed
-    </div>
-    <div class="cta-highlight">
-      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-      All insurance accepted
-    </div>
-    <div class="cta-highlight">
-      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-      Spanish-speaking services available
-    </div>
-    <div class="cta-highlight">
-      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-      You are not alone
-    </div>
+    <div class="cta-highlight"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="cta-1">No referral needed</span></div>
+    <div class="cta-highlight"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="cta-2">Most insurances accepted</span></div>
+    <div class="cta-highlight"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="cta-3">Spanish-speaking services available</span></div>
+    <div class="cta-highlight"><svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span id="cta-4">You are not alone</span></div>
   </div>
-  <a href="#clinics" class="btn btn-primary" style="font-size:16px; padding: 14px 32px;">
-    Find a Clinic Now
-  </a>
+  <a href="#clinics" class="btn btn-primary" style="font-size:16px; padding: 14px 32px;" id="cta-btn">Find a Clinic Now</a>
 </div>
 
-<!-- PRINT STRIP (desktop prominent) -->
+<!-- PRINT STRIP -->
 <div class="print-strip">
-  <p>Healthcare provider or staff? Print this handout to give to patients.</p>
-  <a href="MAT_Reno_Handout.pdf" target="_blank" class="btn btn-print">
-    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-    Download & Print Pamphlet (PDF)
-  </a>
+  <p id="print-p">Healthcare provider or staff? Print this handout to give to patients.</p>
+  <div class="print-buttons">
+    <a href="MAT_Reno_Handout.pdf" target="_blank" class="btn btn-print">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      <span id="print-en-label">Download & Print Pamphlet (English)</span>
+    </a>
+    <a href="MAT_Reno_Handout_ES.pdf" target="_blank" class="btn btn-print">
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      <span id="print-es-label">Descargar folleto (Español)</span>
+    </a>
+  </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <p>MAT Reno · Medication for Addiction Treatment Resource · Reno, NV · Information updated 2025</p>
+  <p id="footer-text">MAT Reno · Medication for Addiction Treatment Resource · Reno, NV · Information updated 2026</p>
 </footer>
 
 <script>
-  // Open/closed badge logic based on local Reno time
-  function checkOpen(schedule) {
-    const now = new Date();
-    // Convert to Pacific time
-    const pt = new Date(now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
-    const day = pt.getDay(); // 0=Sun, 1=Mon ... 6=Sat
-    const hour = pt.getHours();
-    const min = pt.getMinutes();
-    const time = hour + min / 60;
-
-    for (const s of schedule) {
-      if (s.days.includes(day) && time >= s.open && time < s.close) return true;
-    }
-    return false;
+const translations = {
+  en: {
+    'hero-tag': 'Reno, NV · Help Is Available',
+    'hero-h1': 'Medication for',
+    'hero-span': 'Addiction Treatment',
+    'hero-p': 'Safe, proven care that reduces cravings and supports your recovery. You do not need a referral to get started.',
+    'btn-clinics': 'Find a Clinic',
+    'btn-faq': 'What is MAT?',
+    'btn-print-hero': 'Print Pamphlet',
+    'spanish-banner-text': '🌐 Se habla español en todas las clínicas · Spanish-speaking services available at all clinics',
+    'what-text': '<strong>What is MAT?</strong> MAT uses FDA-approved medicine to reduce cravings and ease withdrawal. Combined with counseling, it helps you manage addiction and build a healthier life. <strong>It works. Recovery is possible.</strong>',
+    'clinics-title': 'Clinics in Reno',
+    'clinics-sub': 'Call during business hours or walk in where noted.',
+    'call-now': 'Call Now',
+    'addr-cha': '6 locations across Reno/Sparks',
+    'hours-cha': 'Mon–Fri 8am – 4:30pm',
+    'cha-n1': 'Appointments available within 72 hours',
+    'cha-n2': 'Buprenorphine (Suboxone), naltrexone (Vivitrol)',
+    'cha-n3': 'Most insurances accepted · sliding fee scale',
+    'tag-72hr': '⚡ 72hr appt',
+    'hours-hopes': 'Walk-in M–F · Orientation: Thu 12–1pm (5th St) & Tue 4–5pm (4th St)',
+    'hopes-n1': 'Buprenorphine (Suboxone, Sublocade, Brixadi), naltrexone (Vivitrol) — no methadone',
+    'hopes-n2': 'Dedicated perinatal team for pregnant women with SUD',
+    'hopes-n3': 'Most insurances accepted · sliding fee scale',
+    'tag-walkin': '🚶 Walk-in M–F',
+    'hours-unr': 'Mon–Fri 8am – 5pm · Call on Mondays to schedule MAT',
+    'unr-n1': 'Buprenorphine (Suboxone), naltrexone (Vivitrol)',
+    'unr-n2': 'Ask for UNR Family Medicine, then ask for scheduling for the MAT clinic',
+    'unr-n3': 'Providers: use Epic Messenger or Voalte',
+    'hours-renown': 'Tue & Thu 8am – 4:30pm',
+    'renown-n1': 'Dr. Bret Bellard',
+    'renown-n2': 'Buprenorphine (Suboxone), naltrexone (Vivitrol)',
+    'renown-n3': 'Personalized, evidence-based care',
+    'faq-title': 'Common Questions',
+    'faq-sub': 'Simple answers about how MAT works.',
+    'fq1': 'Will MAT make me feel high?', 'fa1': 'No. MAT medicines help you feel stable and in control — not high.',
+    'fq2': 'Is MAT safe?', 'fa2': 'Yes. MAT medicines are FDA-approved and proven to work for opioid addiction.',
+    'fq3': 'Do I need therapy too?', 'fa3': 'Therapy is recommended but not required. Many clinics offer peer support, group therapy, individual therapy, and intensive outpatient programs. Talk to your care team about what works best for you.',
+    'fq4': 'How long will I need MAT?', 'fa4': 'It depends on you. Treatment length varies and your care team will guide you every step.',
+    'fq5': 'What does it cost?', 'fa5': 'Most clinics accept most insurances. Sliding fee scales are available if you are uninsured.',
+    'fq6': 'Do I need a referral?', 'fa6': 'No. Anyone can contact a clinic directly — patients, family members, nurses, doctors, social workers, or shelter staff. No referral is required at any clinic.',
+    'cta-h2': 'Ready to take the first step?',
+    'cta-p': 'Call any clinic above. You do not need a referral. Help is available right now.',
+    'cta-1': 'No referral needed', 'cta-2': 'Most insurances accepted', 'cta-3': 'Spanish-speaking services available', 'cta-4': 'You are not alone',
+    'cta-btn': 'Find a Clinic Now',
+    'print-p': 'Healthcare provider or staff? Print this handout to give to patients.',
+    'print-en-label': 'Download & Print Pamphlet (English)',
+    'print-es-label': 'Descargar folleto (Español)',
+    'footer-text': 'MAT Reno · Medication for Addiction Treatment Resource · Reno, NV · Information updated 2026',
+    'open': 'Open Now', 'closed': 'Closed Now'
+  },
+  es: {
+    'hero-tag': 'Reno, NV · Ayuda Disponible',
+    'hero-h1': 'Medicamento para',
+    'hero-span': 'el Tratamiento de Adicción',
+    'hero-p': 'Atención segura y comprobada que reduce los antojos y apoya su recuperación. No necesita una referencia para comenzar.',
+    'btn-clinics': 'Encontrar una Clínica',
+    'btn-faq': '¿Qué es el MAT?',
+    'btn-print-hero': 'Imprimir Folleto',
+    'spanish-banner-text': '🌐 Se habla español en todas las clínicas · Spanish-speaking services available at all clinics',
+    'what-text': '<strong>¿Qué es el MAT?</strong> El MAT usa medicamentos aprobados por la FDA para reducir los antojos y aliviar la abstinencia. Combinado con consejería, le ayuda a manejar la adicción y construir una vida más saludable. <strong>Funciona. La recuperación es posible.</strong>',
+    'clinics-title': 'Clínicas en Reno',
+    'clinics-sub': 'Llame durante el horario de atención o entre sin cita donde se indica.',
+    'call-now': 'Llamar Ahora',
+    'addr-cha': '6 ubicaciones en Reno/Sparks',
+    'hours-cha': 'Lun–Vie 8am – 4:30pm',
+    'cha-n1': 'Citas disponibles en 72 horas',
+    'cha-n2': 'Buprenorfina (Suboxone), naltrexona (Vivitrol)',
+    'cha-n3': 'La mayoría de los seguros aceptados · escala de honorarios según ingresos',
+    'tag-72hr': '⚡ Cita en 72hrs',
+    'hours-hopes': 'Entrada libre Lun–Vie · Orientación: Jue 12–1pm (5th St) y Mar 4–5pm (4th St)',
+    'hopes-n1': 'Buprenorfina (Suboxone, Sublocade, Brixadi), naltrexona (Vivitrol) — sin metadona',
+    'hopes-n2': 'Equipo perinatal dedicado para mujeres embarazadas con trastorno por uso de sustancias',
+    'hopes-n3': 'La mayoría de los seguros aceptados · escala de honorarios según ingresos',
+    'tag-walkin': '🚶 Entrada libre Lun–Vie',
+    'hours-unr': 'Lun–Vie 8am – 5pm · Llame los lunes para programar MAT',
+    'unr-n1': 'Buprenorfina (Suboxone), naltrexona (Vivitrol)',
+    'unr-n2': 'Pida UNR Family Medicine, luego pida cita para la clínica MAT',
+    'unr-n3': 'Proveedores: use Epic Messenger o Voalte',
+    'hours-renown': 'Mar y Jue 8am – 4:30pm',
+    'renown-n1': 'Dr. Bret Bellard',
+    'renown-n2': 'Buprenorfina (Suboxone), naltrexona (Vivitrol)',
+    'renown-n3': 'Atención personalizada y basada en evidencia',
+    'faq-title': 'Preguntas Frecuentes',
+    'faq-sub': 'Respuestas simples sobre cómo funciona el MAT.',
+    'fq1': '¿El MAT me hará sentir drogado?', 'fa1': 'No. Los medicamentos MAT le ayudan a sentirse estable y en control — no drogado.',
+    'fq2': '¿Es seguro el MAT?', 'fa2': 'Sí. Los medicamentos MAT están aprobados por la FDA y se ha comprobado que funcionan para la adicción a los opioides.',
+    'fq3': '¿También necesito terapia?', 'fa3': 'La terapia es recomendada pero no obligatoria. Muchas clínicas ofrecen apoyo entre compañeros, terapia grupal, terapia individual y programas ambulatorios intensivos. Hable con su equipo de atención sobre lo que más le conviene.',
+    'fq4': '¿Cuánto tiempo necesitaré el MAT?', 'fa4': 'Depende de usted. La duración del tratamiento varía y su equipo de atención le guiará en cada paso.',
+    'fq5': '¿Cuánto cuesta?', 'fa5': 'La mayoría de las clínicas aceptan la mayoría de los seguros. Hay escalas de honorarios según ingresos disponibles si no tiene seguro.',
+    'fq6': '¿Necesito una referencia?', 'fa6': 'No. Cualquier persona puede contactar a una clínica directamente — pacientes, familiares, enfermeras, médicos, trabajadores sociales o personal de albergues. No se requiere referencia en ninguna clínica.',
+    'cta-h2': '¿Listo para dar el primer paso?',
+    'cta-p': 'Llame a cualquier clínica arriba. No necesita una referencia. Hay ayuda disponible ahora mismo.',
+    'cta-1': 'No se necesita referencia', 'cta-2': 'La mayoría de los seguros aceptados', 'cta-3': 'Servicios en español disponibles', 'cta-4': 'No está solo',
+    'cta-btn': 'Encontrar una Clínica Ahora',
+    'print-p': '¿Proveedor de salud o personal? Imprima este folleto para darlo a los pacientes.',
+    'print-en-label': 'Download & Print Pamphlet (English)',
+    'print-es-label': 'Descargar folleto (Español)',
+    'footer-text': 'MAT Reno · Recurso de Tratamiento de Adicción con Medicamentos · Reno, NV · Información actualizada 2026',
+    'open': 'Abierto Ahora', 'closed': 'Cerrado Ahora'
   }
+};
 
-  const clinics = [
-    {
-      id: 'badge-unr',
-      schedule: [{ days: [1,2,3,4,5], open: 8, close: 17 }]
-    },
-    {
-      id: 'badge-renown',
-      schedule: [{ days: [2,4], open: 8, close: 16.5 }]
-    },
-    {
-      id: 'badge-cha',
-      schedule: [{ days: [1,2,3,4,5], open: 8, close: 16.5 }]
-    },
-    {
-      id: 'badge-hopes',
-      // No set hours listed beyond orientation; show as call-based
-      schedule: [{ days: [1,2,3,4,5], open: 8, close: 17 }]
-    }
-  ];
+let currentLang = 'en';
 
-  clinics.forEach(c => {
+function setLang(lang) {
+  currentLang = lang;
+  const t = translations[lang];
+  document.getElementById('btn-en').className = 'lang-btn' + (lang === 'en' ? ' active' : '');
+  document.getElementById('btn-es').className = 'lang-btn' + (lang === 'es' ? ' active' : '');
+  document.getElementById('translation-note').style.display = lang === 'es' ? 'block' : 'none';
+  document.documentElement.lang = lang;
+
+  // Simple text elements
+  const simpleIds = ['hero-tag','hero-h1','hero-span','hero-p','btn-clinics','btn-faq','btn-print-hero',
+    'clinics-title','clinics-sub','faq-title','faq-sub','cta-h2','cta-p',
+    'cta-1','cta-2','cta-3','cta-4','cta-btn','print-p','print-en-label','print-es-label','footer-text',
+    'tag-72hr','tag-walkin',
+    'fq1','fa1','fq2','fa2','fq3','fa3','fq4','fa4','fq5','fa5','fq6','fa6',
+    'hours-unr','hours-renown','hours-cha','hours-hopes',
+    'unr-n1','unr-n2','unr-n3','renown-n1','renown-n2','renown-n3',
+    'cha-n1','cha-n2','cha-n3','addr-cha',
+    'hopes-n1','hopes-n2','hopes-n3','hopes-n4'];
+
+  simpleIds.forEach(id => {
+    const el = document.getElementById(id) || document.querySelector('.' + id);
+    if (el && t[id] !== undefined) el.innerHTML = t[id];
+  });
+
+  // Class-based elements
+  ['call-now','addr-cha','hours-cha','cha-n1','cha-n2','cha-n3',
+   'hours-hopes','hopes-n1','hopes-n2','hopes-n3','hopes-n4',
+   'hours-unr','unr-n1','unr-n2','unr-n3',
+   'hours-renown','renown-n1','renown-n2','renown-n3'].forEach(cls => {
+    document.querySelectorAll('.' + cls).forEach(el => { if (t[cls]) el.innerHTML = t[cls]; });
+  });
+
+  // Spanish banner
+  document.getElementById('spanish-banner-text').innerHTML = t['spanish-banner-text'];
+  document.getElementById('what-text').innerHTML = t['what-text'];
+
+  // Update open/closed badges
+  updateBadges();
+}
+
+function checkOpen(schedule) {
+  const now = new Date();
+  const pt = new Date(now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
+  const day = pt.getDay();
+  const time = pt.getHours() + pt.getMinutes() / 60;
+  for (const s of schedule) {
+    if (s.days.includes(day) && time >= s.open && time < s.close) return true;
+  }
+  return false;
+}
+
+const clinicSchedules = [
+  { id: 'badge-unr', schedule: [{ days: [1,2,3,4,5], open: 8, close: 17 }] },
+  { id: 'badge-renown', schedule: [{ days: [2,4], open: 8, close: 16.5 }] },
+  { id: 'badge-cha', schedule: [{ days: [1,2,3,4,5], open: 8, close: 16.5 }] },
+  { id: 'badge-hopes', schedule: [{ days: [1,2,3,4,5], open: 8, close: 17 }] }
+];
+
+function updateBadges() {
+  const t = translations[currentLang];
+  clinicSchedules.forEach(c => {
     const el = document.getElementById(c.id);
     if (!el) return;
     const open = checkOpen(c.schedule);
     el.className = 'open-badge ' + (open ? 'open' : 'closed');
-    el.querySelector('.label').textContent = open ? 'Open Now' : 'Closed Now';
+    el.querySelector('.label').textContent = open ? t['open'] : t['closed'];
   });
-</script>
+}
 
+updateBadges();
+</script>
 </body>
 </html>
